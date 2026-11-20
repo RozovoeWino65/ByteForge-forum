@@ -1,0 +1,11 @@
+# зависимости
+node_modules/
+
+# системный мусор
+.DS_Store
+Thumbs.db
+
+# логи и временные файлы
+*.log
+.env
+.env.local

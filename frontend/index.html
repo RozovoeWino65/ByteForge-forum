@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ByteForge — форум</title>
+    <meta name="description" content="ByteForge — учебный форум: вход по никнейму, категории и посты." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%236c5ce7'/><text x='12' y='17' font-size='14' font-family='sans-serif' text-anchor='middle' fill='white'>B</text></svg>" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <!-- ЭКРАН 1. Вход по никнейму -->
+    <section class="auth" id="auth-view">
+      <div class="card auth__card">
+        <div class="brand brand--lg">
+          <span class="brand__mark" aria-hidden="true">B</span>
+          <span class="brand__name">ByteForge</span>
+        </div>
+        <h1 class="auth__title">Вход на форум</h1>
+        <p class="muted">Введите никнейм — этого достаточно, чтобы читать и писать посты.</p>
+
+        <form class="auth__form" id="login-form" novalidate>
+          <label class="field">
+            <span class="field__label">Никнейм</span>
+            <input
+              class="input"
+              id="login-username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              placeholder="Например, Artem"
+              maxlength="24"
+              required
+            />
+          </label>
+          <p class="field__error" id="login-error" role="alert" hidden></p>
+          <button class="btn btn--primary btn--block" type="submit">Вход</button>
+        </form>
+
+        <p class="auth__hint muted">Аккаунт создаётся автоматически при первом входе.</p>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 2. Форум -->
+    <div class="app" id="forum-view" hidden>
+      <header class="topbar">
+        <a class="brand" href="#/forum">
+          <span class="brand__mark" aria-hidden="true">B</span>
+          <span class="brand__name">ByteForge</span>
+        </a>
+
+        <div class="topbar__actions">
+          <a class="userchip" id="user-chip" href="#/profile">
+            <span class="avatar avatar--sm" id="user-avatar" aria-hidden="true"></span>
+            <span class="userchip__name" id="user-name"></span>
+          </a>
+          <button class="btn btn--ghost" id="logout-btn" type="button">Выход</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar card">
+          <h2 class="sidebar__title">Категории</h2>
+          <nav class="cats" id="category-list" aria-label="Категории форума"></nav>
+        </aside>
+
+        <main class="content" id="main">
+          <!-- Лента постов -->
+          <section id="feed-view">
+            <form class="card composer" id="composer" novalidate>
+              <div class="composer__head">
+                <span class="avatar avatar--sm" id="composer-avatar" aria-hidden="true"></span>
+                <strong>Новый пост</strong>
+              </div>
+
+              <label class="field">
+                <span class="field__label">Категория</span>
+                <select class="input" id="composer-category"></select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">Заголовок</span>
+                <input
+                  class="input"
+                  id="composer-title"
+                  type="text"
+                  maxlength="140"
+                  placeholder="О чём пост?"
+                />
+              </label>
+
+              <label class="field">
+                <span class="field__label">Текст поста</span>
+                <textarea
+                  class="input input--area"
+                  id="composer-body"
+                  rows="3"
+                  maxlength="3000"
+                  placeholder="Поделитесь мыслями…"
+                ></textarea>
+              </label>
+
+              <div class="composer__foot">
+                <span class="counter" id="composer-counter">0 / 3000</span>
+                <p class="field__error" id="composer-error" role="alert" hidden></p>
+                <button class="btn btn--primary" id="composer-submit" type="submit">Опубликовать</button>
+              </div>
+            </form>
+
+            <div class="feed-head">
+              <h2 class="feed-head__title" id="feed-title">Все посты</h2>
+              <span class="badge" id="feed-count">0</span>
+            </div>
+
+            <div class="feed" id="feed" aria-live="polite"></div>
+          </section>
+
+          <!-- Профиль -->
+          <section id="profile-view" hidden></section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
