@@ -1,13 +1,12 @@
 /**
  * Настройки фронтенда.
  *
- * Когда бэкенд Богдана будет готов — поменяйте API_MODE на 'rest'
- * и укажите адрес сервера в API_BASE_URL. Больше менять ничего не нужно.
+ * По умолчанию используется локальный Java API; для автономной демонстрации выберите 'mock'.
  */
 
 export const CONFIG = {
   /** 'mock' — данные в localStorage, 'rest' — реальный HTTP API. */
-  API_MODE: 'mock',
+  API_MODE: 'rest',
 
   /** База REST API (используется только в режиме 'rest'). */
   API_BASE_URL: 'http://localhost:3000/api',

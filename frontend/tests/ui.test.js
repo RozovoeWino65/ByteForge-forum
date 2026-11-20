@@ -11,6 +11,10 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { JSDOM } from 'jsdom';
+import { CONFIG } from '../js/config.js';
+
+// UI-тесты автономны: тестируем интерфейс независимо от запущенного Java API.
+CONFIG.API_MODE = 'mock';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 

@@ -33,10 +33,13 @@
 ```
 ByteForge/
 ├── README.md
+├── backend/         # Java HTTP API, JDBC и H2
 └── frontend/        # MVP клиентской части форума (HTML/CSS/JS)
 ```
 
-## Статус: MVP фронтенда
+## Статус: локальный MVP
+
+Бэкенд и фронтенд соединены через REST. **[Как запустить проект, проверить API и пересобрать Java-код →](backend/README.md)**
 
 Клиентская часть MVP готова и лежит в каталоге [`frontend/`](./frontend):
 
