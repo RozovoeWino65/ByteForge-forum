@@ -9,3 +9,7 @@ Thumbs.db
 *.log
 .env
 .env.local
+
+# Локальная БД и результаты сборки Java
+/backend/data/
+/backend/target/
